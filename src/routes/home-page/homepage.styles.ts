@@ -14,11 +14,8 @@ const pageFlex = css`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 29px 199px;
-	gap: 10px;
-
+	gap: 4px;
 	border-top: 1px solid;
-
 	border-image-source: linear-gradient(90deg, #a11cf3 0%, #d835c5 100%);
 `;
 
@@ -36,10 +33,16 @@ const linhaGradiente = css`
 	border-top: 1px solid;
 	border-image-source: linear-gradient(90deg, #a11cf3 0%, #d835c5 100%);
 `;
-
+const linhaGradienteUnderScore = css`
+	background: linear-gradient(90deg, #a11cf3 0%, #d835c5 100%);
+	width: 34px;
+	height: 4px;
+	border-radius: 50px;
+`;
 export default {
 	pageContainer,
 	pageFlex,
 	contentBox,
 	linhaGradiente,
+	linhaGradienteUnderScore,
 };
