@@ -7,6 +7,7 @@ import {
 import { css, Global } from '@emotion/react';
 import { Helmet } from 'react-helmet';
 import history from './history';
+import { useResizeDetector } from 'react-resize-detector';
 
 const globalStyles = css`
 	html,
