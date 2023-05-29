@@ -1,23 +1,20 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { theme } from '@xometry/xometry_loft';
 
 export type TopNavContainerProps = {
 	isMobile: boolean;
 };
 export const TopNavContainer = styled.div<TopNavContainerProps>`
-	height: 56px;
-	padding: 0px ${({ isMobile }) => (isMobile ? '16' : '24')}px;
-	background-color: ${theme.colors.white};
+	height: 100%;
+	background-color: gray;
 	display: flex;
 	flex-direction: row;
 	overflow: visible;
 	align-items: center;
-	box-shadow: 0px 1px 0px ${theme.colors.darkBlues[10]};
+	box-shadow: 0px 1px 0px red;
 	margin-bottom: 1px;
-	@media print {
-		display: none;
-	}
+	display: flex;
+	flex-direction: column;
 `;
 
 export const image = css`
@@ -36,30 +33,12 @@ export const GravatarLogo = styled.span`
 	align-items: center;
 `;
 
-export const OrgLogo = styled.div`
-	${theme.mediaQueries.small} {
-		width: 154px;
-	}
-	max-width: 222px;
-	min-width: 154px;
-`;
-
-export const ButtonOrgWrapper = styled.div`
-	${theme.mediaQueries.small} {
-		width: 202px;
-		margin-right: 24px;
-	}
+export type ButtonOrgWrapperProps = {
+	isMobile: boolean;
+};
+export const ButtonOrgWrapper = styled.div<ButtonOrgWrapperProps>`
+	height: ${({ isMobile }) => (isMobile ? '68' : '80')}px;
 	display: flex;
-	width: 270px;
-`;
-
-export const OrgName = css`
-	width: 100%;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	font-size: ${theme.fontSizes[2]};
-	font-weight: ${theme.fontWeights.semibold};
-	line-height: ${theme.lineHeights[3]};
-	color: ${theme.colors.darkBlues[100]};
+	justify-content: center;
+	align-items: center;
 `;

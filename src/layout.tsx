@@ -1,11 +1,9 @@
-import { theme } from '@xometry/xometry_loft';
 import { Outlet } from 'react-router-dom';
 import styled from '@emotion/styled';
 import TopNavigation from './features/top-navigation';
-import useIsMobile from './hooks/is-mobile';
 
 const PageContainer = styled.div`
-	background-color: ${theme.colors.darkBlues[5]};
+	background-color: gray;
 	height: calc(100vh - 57px);
 `;
 
