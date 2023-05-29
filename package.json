@@ -32,27 +32,10 @@
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build"
 	},
-	"eslintConfig": {
-		"extends": [
-			"react-app",
-			"react-app/jest"
-		]
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	},
 	"devDependencies": {
 		"@arthurgeron/eslint-plugin-react-usememo": "^0.1.1",
 		"@commitlint/config-conventional": "^17.4.4",
+		"@emotion/babel-preset-css-prop": "^11.2.0",
 		"@storybook/addon-essentials": "^7.0.18",
 		"@storybook/addon-interactions": "^7.0.18",
 		"@storybook/addon-links": "^7.0.18",
