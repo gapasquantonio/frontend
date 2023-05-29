@@ -1,0 +1,19 @@
+name: "Check PR title to be compliant with semantic release"
+
+on:
+  pull_request: 
+    types: ["edited", "opened", "reopened"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup node
+        uses: actions/setup-node@v3
+      - name: Checkout Repository Code
+        uses: actions/checkout@v2
+      - name: validate
+        run: |
+          echo "${{ github.event.pull_request.title }}" > pr_title
+          npm i -g commitlint @commitlint/config-conventional
+          npx -- commitlint --edit pr_title
