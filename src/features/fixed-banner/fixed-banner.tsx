@@ -8,12 +8,13 @@ function FixedBanner() {
 
 	return (
 		<FixedBannerContainer isMobile={isMobile}>
-			<Flex gap="18px">
-				<Text isMobile={isMobile} kind="label">
+			<Flex gap="18px" flexDirection={isMobile ? 'column' : 'row'}>
+				{isMobile && <button type="submit">fechar</button>}
+				<Text isMobile={isMobile} kind="label" alignItems="center">
 					Não limite sua criatividade, junte-se a familia Blocks por
 					apenas <b>BRL 19,99</b>
 				</Text>
-				<button type="submit">a</button>
+				<button type="submit">Quero ser Premium</button>
 			</Flex>
 		</FixedBannerContainer>
 	);
