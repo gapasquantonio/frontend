@@ -2,9 +2,7 @@
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"project": "./tsconfig.json",
-		"extraFileExtensions": [
-			".mjs"
-		]
+		"extraFileExtensions": [".mjs"]
 	},
 	"env": {
 		"browser": true,
@@ -49,17 +47,9 @@
 				"idInterpolationPattern": "@xometry/xometry-workcenter:[sha512:contenthash:base64:6]"
 			}
 		],
-		"formatjs/enforce-description": [
-			"error",
-			"literal"
-		],
-		"formatjs/enforce-default-message": [
-			"error",
-			"literal"
-		],
-		"formatjs/no-literal-string-in-jsx": [
-			"warn"
-		],
+		"formatjs/enforce-description": ["error", "literal"],
+		"formatjs/enforce-default-message": ["error", "literal"],
+		"formatjs/no-literal-string-in-jsx": ["warn"],
 		"react/function-component-definition": "off",
 		"no-plusplus": [
 			"error",
@@ -80,16 +70,11 @@
 			}
 		],
 		"no-use-before-define": "off",
-		"@typescript-eslint/no-use-before-define": [
-			"error"
-		],
+		"@typescript-eslint/no-use-before-define": ["error"],
 		"react/jsx-filename-extension": [
 			"warn",
 			{
-				"extensions": [
-					".tsx",
-					".ts"
-				]
+				"extensions": [".tsx", ".ts"]
 			}
 		],
 		"react/jsx-props-no-spreading": "off",
@@ -100,9 +85,7 @@
 		{
 			"files": "src/components/**",
 			"rules": {
-				"@arthurgeron/react-usememo/require-usememo": [
-					"warn"
-				]
+				"@arthurgeron/react-usememo/require-usememo": ["warn"]
 			}
 		},
 		{
