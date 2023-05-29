@@ -4,6 +4,7 @@ import Text from '../../components/text';
 import Box from '../../components/box';
 import styles from './homepage.styles';
 import useIsMobile from '../../hooks/is-mobile';
+import LineItemMiniCard from '../../components/line-item-card';
 
 const Homepage: React.FC = () => {
 	const isMobile = useIsMobile();
@@ -18,9 +19,16 @@ const Homepage: React.FC = () => {
 				<Text kind="page-title">Catálogo</Text>
 				<div css={styles.linhaGradienteUnderScore} />
 			</Box>
-			<Box css={styles.contentBox}>
-				<Text kind="body-title">Resultados</Text>
-			</Box>
+			<LineItemMiniCard
+				item={{
+					id: '1',
+					premium: false,
+					details: {
+						name: 'a',
+						description: 'ao',
+					},
+				}}
+			/>
 		</Box>
 	);
 };

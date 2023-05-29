@@ -15,8 +15,6 @@ const pageFlex = css`
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 4px;
-	border-top: 1px solid;
-	border-image-source: linear-gradient(90deg, #a11cf3 0%, #d835c5 100%);
 `;
 
 const contentBox = css`
