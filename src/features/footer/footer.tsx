@@ -12,15 +12,17 @@ const mockedFooter: FooterItem[] = [
 	{ name: 'Politica de privacidade', id: '4' },
 ];
 function Footer() {
-	const isMobile = useIsMobile('mobileLandscape');
+	const isMobile = useIsMobile();
 
 	return (
 		<FooterContainer isMobile={isMobile}>
 			<Flex
-				height="65px"
-				alignItems="center"
+				height={isMobile ? '160px' : '65px'}
+				alignItems={isMobile ? 'start' : 'center'}
 				justifyContent="center"
-				gap="36px"
+				gap={isMobile ? '12px' : '36px'}
+				flexDirection={isMobile ? 'column' : 'row'}
+				padding={isMobile ? '12px 14px' : ''}
 			>
 				{mockedFooter.map(({ name, id }) => {
 					return (

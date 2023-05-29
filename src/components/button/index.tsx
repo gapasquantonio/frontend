@@ -10,14 +10,15 @@ interface IconButtonProps extends ButtonProps {
 	scale?: Scale;
 	kind?: ButtonKind | string;
 	className?: string;
+	text?: string | undefined;
 }
 
 const IconButton: React.FC<IconButtonProps> = (iconButtonProps) => {
-	const { iconClassName, className, id, ...res } = iconButtonProps;
+	const { iconClassName, className, id, text, ...res } = iconButtonProps;
 
 	return (
 		<Button css={className} id={id} {...res}>
-			<Text kind="button">Quero ser Premium</Text>
+			<Text kind="button">{text}</Text>
 			<i className={classnames(iconClassName)} />
 		</Button>
 	);
@@ -28,6 +29,7 @@ const defaultIconButtonProps = {
 	scale: theme.scale.medium,
 	kind: 'outline',
 	className: undefined,
+	text: undefined,
 };
 
 IconButton.defaultProps = defaultIconButtonProps;

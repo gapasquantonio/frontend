@@ -142,6 +142,7 @@ export enum kind {
 	// primary config, used for commital and happy path actions or states
 	primary = 'primary',
 	// neutral config, used for non-primary or secondary actions or indicators, also the default kind in most cases
+	neutral = 'neutral',
 }
 
 export const kindThemes: KindConfig = {
@@ -174,6 +175,38 @@ export const kindThemes: KindConfig = {
 			color: '#ffff',
 			stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%)',
 			fill: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%);',
+		},
+		disabled: defaultDisabledKind,
+	},
+	[kind.neutral]: {
+		color: '#ffff',
+		stroke: 'transparent',
+		fill: 'transparent',
+		hover: {
+			color: '#ffff',
+			stroke: 'transparent',
+			fill: 'transparent',
+			focus: {
+				color: '#ffff',
+				stroke: 'transparent',
+				fill: 'transparent',
+			},
+			active: {
+				color: '#ffff',
+				stroke: 'transparent',
+				fill: 'transparent',
+			},
+			disabled: defaultDisabledKind,
+		},
+		focus: {
+			color: '#ffff',
+			stroke: 'transparent',
+			fill: 'transparent',
+		},
+		active: {
+			color: '#ffff',
+			stroke: 'transparent',
+			fill: 'transparent',
 		},
 		disabled: defaultDisabledKind,
 	},

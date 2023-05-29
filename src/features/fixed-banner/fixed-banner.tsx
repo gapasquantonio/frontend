@@ -9,18 +9,46 @@ function FixedBanner() {
 
 	return (
 		<FixedBannerContainer isMobile={isMobile}>
-			<Flex gap="18px" flexDirection={isMobile ? 'column' : 'row'}>
-				{isMobile && <button type="submit">fechar</button>}
+			<Flex
+				flexDirection={isMobile ? 'column' : 'row'}
+				alignItems="center"
+				height={isMobile ? '186px' : '67px'}
+				gap={isMobile ? '0px' : '18px'}
+			>
+				{isMobile && (
+					<Button
+						id="fechar"
+						kind="text"
+						width={isMobile ? '223px' : '235px'}
+						height="20px"
+						text="Fechar"
+						marginTop={isMobile ? '24px' : ''}
+						iconClassName="fas fa-times"
+					/>
+				)}
 				<Text
 					isMobile={isMobile}
 					kind="label"
 					alignItems="center"
 					display="flex"
+					justifyContent="center"
+					width={isMobile ? '272px' : ''}
+					marginTop={isMobile ? '18px' : ''}
+					textAlign="center"
 				>
 					Não limite sua criatividade, junte-se a familia Blocks por
-					apenas &nbsp;<b>BRL 19,99</b>
+					apenas &nbsp;BRL 19,99
 				</Text>
-				<Button id="a" kind="outline" width="235px" height="42px" />
+				<Button
+					id="a"
+					kind="outline"
+					width={isMobile ? '223px' : '235px'}
+					height="42px"
+					marginBottom={isMobile ? '24px' : ''}
+					marginTop={isMobile ? '18px' : ''}
+					text="Quero ser Premium"
+					iconClassName="fas fa-arrow-right"
+				/>
 			</Flex>
 		</FixedBannerContainer>
 	);

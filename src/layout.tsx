@@ -9,14 +9,14 @@ export type TopNavContainerProps = {
 };
 const PageContainer = styled.div<TopNavContainerProps>`
 	background-color: #fbfbfb;
-	height: calc(100vh - ${({ isMobile }) => (isMobile ? '228' : '212')}px);
+	height: calc(100vh - ${({ isMobile }) => (isMobile ? '68' : '212')}px);
 `;
 
 const ContentContainer = styled.div<TopNavContainerProps>`
 	display: flex;
 	max-width: 1329px;
 	margin: auto;
-	height: calc(100vh - ${({ isMobile }) => (isMobile ? '228' : '212')}px);
+	height: calc(100vh - ${({ isMobile }) => (isMobile ? '68' : '212')}px);
 `;
 
 export default function Layout() {
