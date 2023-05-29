@@ -86,12 +86,115 @@ const spaces = [
 	'36px', // 9
 	'40px', // 10
 ];
+const borders = ['1px', '2px', '3px', '4px'];
+
+type KindColors = {
+	// text color, analagous to CSS color
+	color: string;
+	// stroke/border color
+	stroke: string;
+	// fill/background color
+	fill: string;
+	// optional, alternate for background color, used for when you need constrast within the fill color
+	fillContrast?: string;
+	// optional, outline variation for situations where subtle emphasis is needed
+	outline?: string;
+	// optional, outline variation for situations where even more subtle emphasis is needed
+	outlineContrast?: string;
+};
+
+type KindStates = KindColors & {
+	// Hover state in environments with cursor
+	hover?: KindColors & {
+		// hover + focus
+		focus: KindColors;
+		// hover + active
+		active: KindColors;
+		// hover + disabled
+		disabled: KindColors;
+	};
+	// Focus state, when tabbed to or after presses
+	focus?: KindColors;
+	// Active state, when pressed or clicked
+	active?: KindColors;
+	// Disabled state, when button ignores user events
+	disabled: KindColors;
+};
+
+/**
+ * Default disabled color, all disable states should be identical
+ */
+const defaultDisabledKind = {
+	color: '#808080;',
+	stroke: '#CACACA;',
+	fill: '#CACACA;',
+};
+/**
+ * Type for the config of Kind states
+ */
+type KindConfig = {
+	// A default kind state unioned with two additional properties that contain alternates
+	// The key for each config should derive from the kind enum to ensure we have complete configurations
+	[key in kind]: KindStates;
+};
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export enum kind {
+	// primary config, used for commital and happy path actions or states
+	primary = 'primary',
+	// neutral config, used for non-primary or secondary actions or indicators, also the default kind in most cases
+}
+
+export const kindThemes: KindConfig = {
+	[kind.primary]: {
+		color: '#ffff',
+		stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%)',
+		fill: 'linear-gradient(90deg, rgba(161, 28, 243, 0.6) 0%, rgba(216, 53, 197, 0.6) 100%)',
+		hover: {
+			color: '#ffff',
+			stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%);',
+			fill: 'rgba(223, 172, 255, 0.1);',
+			focus: {
+				color: '#ffff',
+				stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%);',
+				fill: 'rgba(223, 172, 255, 0.1);',
+			},
+			active: {
+				color: '#ffff',
+				stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%);',
+				fill: 'rgba(223, 172, 255, 0.1);',
+			},
+			disabled: defaultDisabledKind,
+		},
+		focus: {
+			color: '#ffff',
+			stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%)',
+			fill: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%);',
+		},
+		active: {
+			color: '#ffff',
+			stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%)',
+			fill: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%);',
+		},
+		disabled: defaultDisabledKind,
+	},
+};
+
+export enum Scale {
+	small = 'small',
+	medium = 'medium',
+	large = 'large',
+	xlarge = 'xlarge',
+}
+
 const theme = {
 	breakpoints,
 	fontWeights,
 	fontSizes,
 	lineHeights,
 	space: spaces,
+	borders,
+	kindThemes,
+	scale: Scale,
 };
 
 // This is a way of getting around the isolated modules flag that is set by default.
