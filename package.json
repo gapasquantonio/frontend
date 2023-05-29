@@ -62,7 +62,6 @@
 		"@storybook/react-webpack5": "^7.0.18",
 		"@storybook/testing-library": "^0.0.14-next.2",
 		"@types/react": "16.14.0",
-		"@types/react-dom": "16.9.14",
 		"@types/react-helmet": "^6.1.5",
 		"@types/segment-analytics": "^0.0.34",
 		"@types/styled-system": "^5.1.15",
@@ -84,7 +83,6 @@
 		"eslint-plugin-testing-library": "^5.1.0",
 		"prettier": "^2.8.8",
 		"prop-types": "^15.8.1",
-		"react-dom": "16.13.1",
 		"storybook": "^7.0.18",
 		"webpack": "^5.84.1"
 	}

@@ -1,14 +1,10 @@
 import React from 'react';
-import {
-	Route,
-	Routes,
-	unstable_HistoryRouter as HistoryRouter,
-} from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { css, Global } from '@emotion/react';
 import { Helmet } from 'react-helmet';
-import history from './history';
 import { useResizeDetector } from 'react-resize-detector';
 import { DeviceProvider } from './contexts/device';
+import Pages from './pages';
 
 const globalStyles = css`
 	html,
@@ -26,10 +22,10 @@ const fullHeightAndWidth = {
 
 export default function App() {
 	const { width, ref } = useResizeDetector({ handleHeight: false });
-
+	const PagesCasted = Pages as unknown as React.FC;
 	return (
 		<div className="App">
-			<HistoryRouter history={history}>
+			<BrowserRouter>
 				<Routes>
 					<Route
 						path="*"
@@ -41,13 +37,13 @@ export default function App() {
 									titleTemplate="%s | Block"
 								/>
 								<div css={fullHeightAndWidth} ref={ref}>
-									pages here
+									<PagesCasted />
 								</div>
 							</DeviceProvider>
 						}
 					/>
 				</Routes>
-			</HistoryRouter>
+			</BrowserRouter>
 		</div>
 	);
 }
