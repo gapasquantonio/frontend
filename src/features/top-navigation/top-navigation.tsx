@@ -9,7 +9,7 @@ function TopNavigation() {
 	const logo = isMobile ? LogoMobile : LogoDesktop;
 	return (
 		<TopNavContainer isMobile={isMobile}>
-			<FixedBanner />
+			{!isMobile && <FixedBanner />}
 			<ButtonOrgWrapper isMobile={isMobile}>
 				<img src={logo} alt="blocks logo" />
 			</ButtonOrgWrapper>

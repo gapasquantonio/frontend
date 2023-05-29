@@ -18,7 +18,7 @@ function FixedBanner() {
 					display="flex"
 				>
 					Não limite sua criatividade, junte-se a familia Blocks por
-					apenas <b>BRL 19,99</b>
+					apenas &nbsp;<b>BRL 19,99</b>
 				</Text>
 				<Button id="a" kind="outline" width="235px" height="42px" />
 			</Flex>
