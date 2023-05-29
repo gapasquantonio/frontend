@@ -1,11 +1,21 @@
+import React, { useCallback } from 'react';
 import { FixedBannerContainer } from './fixed-banner.styles';
 import useIsMobile from '../../hooks/is-mobile';
 import Text from '../../components/text';
 import Flex from '../../components/flex';
 import Button from '../../components/button';
 
-function FixedBanner() {
+interface FixedBannerProps {
+	setBannerClosed?: (isOpen: boolean) => void | undefined;
+}
+
+const FixedBanner: React.FC<FixedBannerProps> = (props) => {
+	const { setBannerClosed } = props;
 	const isMobile = useIsMobile();
+
+	const handleBannerClick = useCallback(() => {
+		if (setBannerClosed) setBannerClosed(true);
+	}, [setBannerClosed]);
 
 	return (
 		<FixedBannerContainer isMobile={isMobile}>
@@ -24,6 +34,7 @@ function FixedBanner() {
 						text="Fechar"
 						marginTop={isMobile ? '24px' : ''}
 						iconClassName="fas fa-times"
+						onClick={handleBannerClick}
 					/>
 				)}
 				<Text
@@ -52,6 +63,11 @@ function FixedBanner() {
 			</Flex>
 		</FixedBannerContainer>
 	);
-}
+};
+const defaultFixedBannerProps = {
+	setBannerClosed: undefined,
+};
 
-export default FixedBanner;
+FixedBanner.defaultProps = defaultFixedBannerProps;
+
+export default React.memo(FixedBanner);

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FooterContainer } from './footer.styles';
 import useIsMobile from '../../hooks/is-mobile';
 import FixedBanner from '../fixed-banner';
@@ -13,7 +14,7 @@ const mockedFooter: FooterItem[] = [
 ];
 function Footer() {
 	const isMobile = useIsMobile();
-
+	const [isBannerClosed, setBannerClosed] = useState<boolean>(false);
 	return (
 		<FooterContainer isMobile={isMobile}>
 			<Flex
@@ -32,7 +33,9 @@ function Footer() {
 					);
 				})}
 			</Flex>
-			{isMobile && <FixedBanner />}
+			{isMobile && !isBannerClosed && (
+				<FixedBanner setBannerClosed={setBannerClosed} />
+			)}
 		</FooterContainer>
 	);
 }
