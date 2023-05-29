@@ -8,6 +8,7 @@ import { css, Global } from '@emotion/react';
 import { Helmet } from 'react-helmet';
 import history from './history';
 import { useResizeDetector } from 'react-resize-detector';
+import { DeviceProvider } from './contexts/device';
 
 const globalStyles = css`
 	html,
@@ -33,16 +34,16 @@ export default function App() {
 					<Route
 						path="*"
 						element={
-							<>
+							<DeviceProvider width={width}>
 								<Global styles={globalStyles} />
 								<Helmet
 									defaultTitle="Blocks"
 									titleTemplate="%s | Block"
 								/>
 								<div css={fullHeightAndWidth} ref={ref}>
-									<PagesCasted />
+									pages here
 								</div>
-							</>
+							</DeviceProvider>
 						}
 					/>
 				</Routes>
