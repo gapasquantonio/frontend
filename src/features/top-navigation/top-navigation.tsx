@@ -1,8 +1,4 @@
-import {
-	TopNavContainer,
-	image,
-	ButtonOrgWrapper,
-} from './top-navigation.styles';
+import { TopNavContainer, ButtonOrgWrapper } from './top-navigation.styles';
 import useIsMobile from '../../hooks/is-mobile';
 import { LogoDesktop, LogoMobile } from '../../shared/icons';
 
@@ -13,7 +9,7 @@ function TopNavigation() {
 	return (
 		<TopNavContainer isMobile={isMobile}>
 			<ButtonOrgWrapper isMobile={isMobile}>
-				<img src={logo} alt="blocks logo" css={image} />
+				<img src={logo} alt="blocks logo" />
 			</ButtonOrgWrapper>
 		</TopNavContainer>
 	);

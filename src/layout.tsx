@@ -1,35 +1,31 @@
 import { Outlet } from 'react-router-dom';
 import styled from '@emotion/styled';
 import TopNavigation from './features/top-navigation';
+import useIsMobile from './hooks/is-mobile';
 
-const PageContainer = styled.div`
-	background-color: gray;
-	height: calc(100vh - 57px);
+export type TopNavContainerProps = {
+	isMobile: boolean;
+};
+const PageContainer = styled.div<TopNavContainerProps>`
+	background-color: #fbfbfb;
+	height: calc(100vh - ${({ isMobile }) => (isMobile ? '68' : '80')}px);
 `;
 
-const ContentContainer = styled.div`
-	justify-content: center;
-	overflow-y: auto;
-	transition: all 0.25s ease-in 0s;
-	height: calc(100vh - 57px);
-	box-sizing: border-box;
-	margin-left: 0px;
-	> :not(#sub-navigation):not(:empty) {
-		margin-bottom: 0px !important;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	@media print {
-		margin-left: 0px;
-	}
+const ContentContainer = styled.div<TopNavContainerProps>`
+	display: flex;
+	max-width: 1329px;
+	margin: auto;
+	height: calc(100vh - ${({ isMobile }) => (isMobile ? '68' : '80')}px);
 `;
 
 export default function Layout() {
+	const isMobile = useIsMobile('mobileLandscape');
+
 	return (
 		<>
 			<TopNavigation />
-			<PageContainer>
-				<ContentContainer>
+			<PageContainer isMobile={isMobile}>
+				<ContentContainer isMobile={isMobile}>
 					<Outlet />
 				</ContentContainer>
 			</PageContainer>
