@@ -7,7 +7,7 @@ const pageContainer = css(`
     max-width: 1329px;
     box-sizing: border-box;
 	background:#FBFBFB;
-	overflow: auto;
+	
 `);
 
 const pageFlex = css`
