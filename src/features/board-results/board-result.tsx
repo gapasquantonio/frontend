@@ -99,7 +99,7 @@ const BoardResult = () => {
 
 	return (
 		<Box
-			paddingLeft={isMobile ? '14px' : '199px'}
+			paddingX={isMobile ? '14px' : '199px'}
 			paddingTop={isMobile ? '28px' : '34px'}
 			onScroll={onScroll}
 			overflow="auto"
@@ -112,6 +112,7 @@ const BoardResult = () => {
 				<Box
 					flexWrap="wrap"
 					display="flex"
+					justifyContent="center"
 					css={styles.imagesContainer}
 				>
 					{data?.pages.map((infinitePage, i) => {

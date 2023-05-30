@@ -14,7 +14,7 @@ const PageContainer = styled.div<TopNavContainerProps>`
 
 const ContentContainer = styled.div<TopNavContainerProps>`
 	display: flex;
-	max-width: 1329px;
+
 	margin: auto;
 	height: calc(100vh - ${({ isMobile }) => (isMobile ? '68' : '212')}px);
 `;
