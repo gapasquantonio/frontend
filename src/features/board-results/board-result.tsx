@@ -14,7 +14,7 @@ export interface IInfinitePage {
 	page: ItemResult[];
 }
 export type Orders = ItemResult[];
-const KanbanColumn = () => {
+const BoardResult = () => {
 	const blocksApi = useBlocksApi();
 
 	const fetchProducts = ({ pageParam = 0 }: QueryFunctionContext) => {
@@ -91,8 +91,8 @@ const KanbanColumn = () => {
 	);
 };
 
-KanbanColumn.defaultProps = {
+BoardResult.defaultProps = {
 	isInitialLoading: false,
 };
 
-export default KanbanColumn;
+export default BoardResult;
