@@ -11,7 +11,8 @@ import styles from './board-result.styles';
 import { pageSize } from './utils';
 import Text from '../../components/text';
 import useIsMobile from '../../hooks/is-mobile';
-import CardLoader from '../card-loader/card-loader';
+import { ResultMockCard } from '../card-loader/card-loader';
+import NoMoreResults from '../no-more-results/no-more-results';
 
 export interface IInfinitePage {
 	nextCursor: number | undefined;
@@ -87,9 +88,7 @@ const BoardResult = () => {
 			onScrolledBottom?.();
 		}
 	};
-	return showLoader ? (
-		<CardLoader numberOfMockedCards={3} />
-	) : (
+	return (
 		<Box
 			paddingLeft={isMobile ? '14px' : '199px'}
 			paddingTop={isMobile ? '28px' : '34px'}
@@ -109,22 +108,29 @@ const BoardResult = () => {
 						return (
 							// eslint-disable-next-line react/no-array-index-key
 							<React.Fragment key={i}>
-								{infinitePage.map((result) => (
-									<LineItemMiniCard
-										item={{
-											id: '1',
-											premium: false,
-											details: {
-												name: 'a',
-												description: 'ao',
-											},
-										}}
-										key={result.id}
-									/>
-								))}
+								{infinitePage.map((result) =>
+									!showLoader ? (
+										<LineItemMiniCard
+											item={{
+												id: '1',
+												premium: false,
+												details: {
+													name: 'a',
+													description: 'ao',
+												},
+											}}
+											key={result.id}
+										/>
+									) : (
+										hasNextPage && (
+											<ResultMockCard key={result.id} />
+										)
+									),
+								)}
 							</React.Fragment>
 						);
 					})}
+					{!hasNextPage && <NoMoreResults />}
 				</Box>
 			</Box>
 		</Box>

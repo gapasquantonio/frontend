@@ -23,7 +23,7 @@ export default class BlocksApi {
 	async getFamilies({ skip }: { skip: number }): Promise<ItemResult[]> {
 		try {
 			const response = await axios.get(
-				`${this.config.origin}/families?skip=${skip}&take=10`,
+				`${this.config.origin}/families?skip=${skip}&take=100`,
 			);
 
 			return response.data;

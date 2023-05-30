@@ -7,7 +7,7 @@ import styles, {
 	TopContainer,
 } from './card-loader.styles';
 
-const ResultMockCard = (): JSX.Element => {
+export const ResultMockCard = (): JSX.Element => {
 	const isMobile = useIsMobile();
 	return (
 		<MainContainer color="white" isMobile={isMobile}>
