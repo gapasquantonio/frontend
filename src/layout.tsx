@@ -4,12 +4,13 @@ import { useState } from 'react';
 import TopNavigation from './features/top-navigation';
 import useIsMobile from './hooks/is-mobile';
 import Footer from './features/footer';
+import { theme } from './theme';
 
 export type TopNavContainerProps = {
 	headerAndFooterHeight: number;
 };
 const PageContainer = styled.div<TopNavContainerProps>`
-	background-color: #fbfbfb;
+	background-color: ${theme.colors.whiteBackground};
 	height: calc(
 		100vh - ${({ headerAndFooterHeight }) => headerAndFooterHeight}px
 	);

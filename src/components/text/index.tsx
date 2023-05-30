@@ -17,7 +17,7 @@ export type TextProps = {
 	React.ComponentProps<'text'>;
 
 const Text = styled.span<TextProps>`
-	color: #202020;
+	color: ${theme.colors.black};
 	font-weight: ${theme.fontWeights.regular};
 	line-height: ${theme.lineHeights[0]};
 	font-style: normal;
@@ -42,7 +42,7 @@ const Text = styled.span<TextProps>`
   ${(props) =>
 		props.kind === 'button' &&
 		`
-    color: #FFFFFF;
+    color: ${theme.colors.white};
     font-size: ${theme.fontSizes[2]};
     line-height: ${theme.lineHeights[3]};
   `}
@@ -54,7 +54,7 @@ const Text = styled.span<TextProps>`
     line-height: ${
 		props.isMobile ? theme.lineHeights[2] : theme.lineHeights[4]
 	};
-    color: #FFFFFF;
+    color: ${theme.colors.white};
   `}
 
   ${(props) =>
@@ -67,7 +67,7 @@ const Text = styled.span<TextProps>`
   ${(props) =>
 		props.kind === 'footer' &&
 		`
-    color: #322E2E
+    color: ${theme.colors.blackFooter};
     font-size: ${props.isMobile ? theme.fontSizes[1] : theme.fontSizes[2]};
     line-height: ${
 		props.isMobile ? theme.lineHeights[1] : theme.lineHeights[3]

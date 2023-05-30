@@ -97,6 +97,26 @@ const mediaQueries = {
 	extralarge: `@media (min-width: ${breakpoints[3]})`, // 1280px
 };
 
+const colors = {
+	black: '#202020',
+	blackBanner: '#242424',
+	blackFooter: '#322E2E',
+	white: 'white',
+	whiteBackground: '#FBFBFB',
+	footerBackground: '#e9e9e9',
+	transparent: 'transparent',
+	disabledPrimary: '#808080',
+	disabledSecondary: '#CACACA',
+	loaderPrimary: '#C1CAD1',
+	loaderSecondary: '#E6E9EC',
+	bordaCard: '#CCCCCC',
+	linearGradientActive: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%)',
+	linearGradientPrimary:
+		'linear-gradient(90deg, rgba(161, 28, 243, 0.6) 0%, rgba(216, 53, 197, 0.6) 100%)',
+	linearGradientHover:
+		'linear-gradient(90deg, rgba(161, 28, 243, 0.6) 0%, rgba(216, 53, 197, 0.6) 100%)',
+};
+
 type KindColors = {
 	// text color, analagous to CSS color
 	color: string;
@@ -134,9 +154,9 @@ type KindStates = KindColors & {
  * Default disabled color, all disable states should be identical
  */
 const defaultDisabledKind = {
-	color: '#808080;',
-	stroke: '#CACACA;',
-	fill: '#CACACA;',
+	color: colors.disabledPrimary,
+	stroke: colors.disabledSecondary,
+	fill: colors.disabledSecondary,
 };
 /**
  * Type for the config of Kind states
@@ -156,66 +176,66 @@ export enum kind {
 
 export const kindThemes: KindConfig = {
 	[kind.primary]: {
-		color: '#ffff',
-		stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%)',
-		fill: 'linear-gradient(90deg, rgba(161, 28, 243, 0.6) 0%, rgba(216, 53, 197, 0.6) 100%)',
+		color: colors.white,
+		stroke: colors.linearGradientActive,
+		fill: colors.linearGradientPrimary,
 		hover: {
-			color: '#ffff',
-			stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%);',
-			fill: 'rgba(223, 172, 255, 0.1);',
+			color: colors.white,
+			stroke: colors.linearGradientActive,
+			fill: colors.linearGradientHover,
 			focus: {
-				color: '#ffff',
-				stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%);',
-				fill: 'rgba(223, 172, 255, 0.1);',
+				color: colors.white,
+				stroke: colors.linearGradientActive,
+				fill: colors.linearGradientHover,
 			},
 			active: {
-				color: '#ffff',
-				stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%);',
-				fill: 'rgba(223, 172, 255, 0.1);',
+				color: colors.white,
+				stroke: colors.linearGradientActive,
+				fill: colors.linearGradientHover,
 			},
 			disabled: defaultDisabledKind,
 		},
 		focus: {
-			color: '#ffff',
-			stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%)',
-			fill: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%);',
+			color: colors.white,
+			stroke: colors.linearGradientActive,
+			fill: colors.linearGradientActive,
 		},
 		active: {
-			color: '#ffff',
-			stroke: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%)',
-			fill: 'linear-gradient(90deg, #A11CF3 0%, #D835C5 100%);',
+			color: colors.white,
+			stroke: colors.linearGradientActive,
+			fill: colors.linearGradientActive,
 		},
 		disabled: defaultDisabledKind,
 	},
 	[kind.neutral]: {
-		color: '#ffff',
-		stroke: 'transparent',
-		fill: 'transparent',
+		color: colors.white,
+		stroke: colors.transparent,
+		fill: colors.transparent,
 		hover: {
-			color: '#ffff',
-			stroke: 'transparent',
-			fill: 'transparent',
+			color: colors.white,
+			stroke: colors.transparent,
+			fill: colors.transparent,
 			focus: {
-				color: '#ffff',
-				stroke: 'transparent',
-				fill: 'transparent',
+				color: colors.white,
+				stroke: colors.transparent,
+				fill: colors.transparent,
 			},
 			active: {
-				color: '#ffff',
-				stroke: 'transparent',
-				fill: 'transparent',
+				color: colors.white,
+				stroke: colors.transparent,
+				fill: colors.transparent,
 			},
 			disabled: defaultDisabledKind,
 		},
 		focus: {
-			color: '#ffff',
-			stroke: 'transparent',
-			fill: 'transparent',
+			color: colors.white,
+			stroke: colors.transparent,
+			fill: colors.transparent,
 		},
 		active: {
-			color: '#ffff',
-			stroke: 'transparent',
-			fill: 'transparent',
+			color: colors.white,
+			stroke: colors.transparent,
+			fill: colors.transparent,
 		},
 		disabled: defaultDisabledKind,
 	},
@@ -238,6 +258,7 @@ const theme = {
 	borders,
 	kindThemes,
 	scale: Scale,
+	colors,
 };
 
 // This is a way of getting around the isolated modules flag that is set by default.

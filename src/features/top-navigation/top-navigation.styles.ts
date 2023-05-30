@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
+import { theme } from '../../theme';
 
 export type TopNavContainerProps = {
 	isMobile: boolean;
 };
 export const TopNavContainer = styled.div<TopNavContainerProps>`
 	height: 100%;
-	background-color: #ffffff;
+	background-color: ${theme.colors.white};
 	align-items: center;
 	display: flex;
 	flex-direction: column;

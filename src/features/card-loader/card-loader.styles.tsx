@@ -1,13 +1,14 @@
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { MainContainerProps } from '../../components/line-item-card/item-card.styles';
+import { theme } from '../../theme';
 
 const animation = keyframes`
 0% {
-    background-color: #C1CAD1;
+    background-color: ${theme.colors.loaderPrimary};
   }
   100% {
-    background-color: #E6E9EC;
+    background-color: ${theme.colors.loaderSecondary};
   }
 `;
 
