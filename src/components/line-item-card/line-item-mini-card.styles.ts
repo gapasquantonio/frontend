@@ -37,12 +37,11 @@ const BottomContainer = styled.div<MainContainerProps>`
 	border-radius: 8px;
 	background: #ffffff;
 `;
-const VerticalDivider = styled.div`
+const VerticalDivider = styled.div<MainContainerProps>`
+	height: ${({ isMobile }) => (isMobile ? '30' : '20')}px;
 	margin-right: 8px !important;
 	margin-left: 8px !important;
-	width: 1px;
-	height: 20px;
-	background: #cccccc !important;
+	border-left: 1px solid #cccccc;
 `;
 const inlineBox = css(`
     display: inline-flex;

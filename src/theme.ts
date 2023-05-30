@@ -50,7 +50,7 @@ type StyledSystemPropsDef = BackgroundProps &
 	ShadowProps &
 	SpaceProps &
 	TypographyProps;
-const breakpoints = ['576px', '768px', '1024px', '1280px'];
+
 const fontWeights = {
 	light: 200,
 	regular: 400,
@@ -87,6 +87,15 @@ const spaces = [
 	'40px', // 10
 ];
 const borders = ['1px', '2px', '3px', '4px'];
+
+const breakpoints = ['576px', '768px', '1024px', '1280px'];
+
+const mediaQueries = {
+	small: `@media (min-width: ${breakpoints[0]})`, // 576px
+	medium: `@media (min-width: ${breakpoints[1]})`, // 768px
+	large: `@media (min-width: ${breakpoints[2]})`, // 1024px
+	extralarge: `@media (min-width: ${breakpoints[3]})`, // 1280px
+};
 
 type KindColors = {
 	// text color, analagous to CSS color
@@ -221,6 +230,7 @@ export enum Scale {
 
 const theme = {
 	breakpoints,
+	mediaQueries,
 	fontWeights,
 	fontSizes,
 	lineHeights,

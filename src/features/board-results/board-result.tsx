@@ -24,6 +24,7 @@ export type Orders = ItemResult[];
 const BoardResult = () => {
 	const blocksApi = useBlocksApi();
 	const isMobile = useIsMobile();
+	const isMobileOrTabletView = useIsMobile('mobileLandscape');
 	const ref = useRef(null);
 	const isOverflow = useIsOverflow(ref);
 
@@ -99,11 +100,12 @@ const BoardResult = () => {
 
 	return (
 		<Box
-			paddingX={isMobile ? '14px' : '199px'}
+			paddingX={isMobile ? '14px' : '34px'}
 			paddingTop={isMobile ? '28px' : '34px'}
 			onScroll={onScroll}
 			overflow="auto"
 			ref={ref}
+			css={styles.resultadosContainer}
 		>
 			<Box>
 				<Box paddingBottom={isMobile ? '14px' : '18px'}>
@@ -112,7 +114,7 @@ const BoardResult = () => {
 				<Box
 					flexWrap="wrap"
 					display="flex"
-					justifyContent="center"
+					justifyContent={isMobileOrTabletView ? 'center' : 'start'}
 					css={styles.imagesContainer}
 				>
 					{data?.pages.map((infinitePage, i) => {

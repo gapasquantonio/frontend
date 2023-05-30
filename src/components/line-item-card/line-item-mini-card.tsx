@@ -33,13 +33,13 @@ export const LineItemCard = (props: LineItemMiniCardProps) => {
 				<Box>
 					<Text
 						kind="label-sm"
-						maxWidth={isMobile ? '90px' : '128px'}
+						width={isMobile ? '90px' : '128px'}
 						css={styles.textBox(isMobile)}
 					>
 						{item.details.description}
 					</Text>
 				</Box>
-				<VerticalDivider />
+				<VerticalDivider isMobile={isMobile} />
 				<Box css={styles.iconBox}>
 					<img src={RightArrowUpIcon} alt="img result" />
 				</Box>

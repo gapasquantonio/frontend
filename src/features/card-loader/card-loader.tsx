@@ -39,7 +39,7 @@ const CardLoader = (props: CardLoaderProps) => {
 			css={{ gap: '16px' }}
 			flexDirection="row"
 			display="flex"
-			paddingX={isMobile ? '14px' : '199px'}
+			paddingX={isMobile ? '14px' : '34px'}
 			overflow="auto"
 		>
 			{new Array(numberOfMockedCards)
