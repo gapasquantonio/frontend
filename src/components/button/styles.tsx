@@ -24,7 +24,6 @@ const ButtonStyles = (props: ButtonProps) => css`
 	border-width: ${theme.borders[0]};
 	border: 1px solid;
 	font-weight: ${theme.fontWeights.semibold};
-	gap: 15px;
 	justify-content: center;
 	display: flex;
 	align-items: center;
@@ -45,7 +44,7 @@ const ButtonStyles = (props: ButtonProps) => css`
 
 			case 'text':
 			default:
-				mappedKind = kind.primary;
+				mappedKind = kind.neutral;
 				break;
 		}
 		const kindTheme =
@@ -53,6 +52,7 @@ const ButtonStyles = (props: ButtonProps) => css`
 
 		return css`
 			border-width: ${!textOnly ? theme.borders[0] : '0px'};
+			gap: ${!textOnly ? '15px' : '9px'};
 			color: ${kindTheme.color};
 			background: ${kindTheme.fill};
 			border-image-source: ${kindTheme.focus?.fill};

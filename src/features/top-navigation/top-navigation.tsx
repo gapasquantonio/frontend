@@ -4,7 +4,7 @@ import { LogoDesktop, LogoMobile } from '../../shared/icons';
 import FixedBanner from '../fixed-banner';
 
 function TopNavigation() {
-	const isMobile = useIsMobile('mobileLandscape');
+	const isMobile = useIsMobile();
 
 	const logo = isMobile ? LogoMobile : LogoDesktop;
 	return (
