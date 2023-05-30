@@ -19,6 +19,12 @@ const TopContainer = styled.div<MainContainerProps>`
 	justify-content: center;
 	align-items: center;
 	background: #ffffff;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 `;
 
 const BottomContainer = styled.div<MainContainerProps>`
@@ -43,13 +49,13 @@ const inlineBox = css(`
     align-items: center;
     align-content: center;
 `);
-const iconBox = css(`
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    margin-right: 7px;
-`);
+const iconBox = css`
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	margin-right: 7px;
+`;
 const textBox = css(`
     display: inline;
     -webkit-line-clamp: 2;

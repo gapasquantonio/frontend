@@ -88,6 +88,8 @@ const BoardResult = () => {
 			onScrolledBottom?.();
 		}
 	};
+	// eslint-disable-next-line no-console
+	console.log(data);
 	return (
 		<Box
 			paddingLeft={isMobile ? '14px' : '199px'}
@@ -108,22 +110,15 @@ const BoardResult = () => {
 						return (
 							// eslint-disable-next-line react/no-array-index-key
 							<React.Fragment key={i}>
-								{infinitePage.map((result) =>
+								{infinitePage.map((item) =>
 									!showLoader ? (
 										<LineItemMiniCard
-											item={{
-												id: '1',
-												premium: false,
-												details: {
-													name: 'a',
-													description: 'ao',
-												},
-											}}
-											key={result.id}
+											item={item}
+											key={item.id}
 										/>
 									) : (
 										hasNextPage && (
-											<ResultMockCard key={result.id} />
+											<ResultMockCard key={item.id} />
 										)
 									),
 								)}
