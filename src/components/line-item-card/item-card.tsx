@@ -20,7 +20,8 @@ export type LineItemMiniCardProps = {
 export const LineItemCard = (props: LineItemMiniCardProps) => {
 	const isMobile = useIsMobile();
 	const { item } = props;
-
+	// eslint-disable-next-line no-console
+	console.log(item);
 	return (
 		<MainContainer isMobile={isMobile}>
 			<TopContainer isMobile={isMobile}>
