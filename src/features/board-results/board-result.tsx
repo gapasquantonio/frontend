@@ -11,6 +11,7 @@ import styles from './board-result.styles';
 import { pageSize } from './utils';
 import Text from '../../components/text';
 import useIsMobile from '../../hooks/is-mobile';
+import CardLoader from '../card-loader/card-loader';
 
 export interface IInfinitePage {
 	nextCursor: number | undefined;
@@ -87,7 +88,7 @@ const BoardResult = () => {
 		}
 	};
 	return showLoader ? (
-		<>carregamdo</>
+		<CardLoader numberOfMockedCards={3} />
 	) : (
 		<Box
 			paddingLeft={isMobile ? '14px' : '199px'}
