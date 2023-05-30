@@ -2,7 +2,7 @@
 import React from 'react';
 import Text from '../../components/text';
 import Box from '../../components/box';
-import styles from './homepage.styles';
+import styles from './home-page.styles';
 import useIsMobile from '../../hooks/is-mobile';
 import BoardResul from '../../features/board-results';
 
@@ -26,4 +26,4 @@ const Homepage: React.FC = () => {
 	);
 };
 
-export default React.memo(Homepage);
+export default Homepage;
