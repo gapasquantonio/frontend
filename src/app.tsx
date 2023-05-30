@@ -12,6 +12,7 @@ const globalStyles = css`
 	#root,
 	#main {
 		height: 100%;
+		margin: 0;
 	}
 `;
 
@@ -24,26 +25,24 @@ export default function App() {
 	const { width, ref } = useResizeDetector({ handleHeight: false });
 	const PagesCasted = Pages as unknown as React.FC;
 	return (
-		<div className="App">
-			<BrowserRouter>
-				<Routes>
-					<Route
-						path="*"
-						element={
-							<DeviceProvider width={width}>
-								<Global styles={globalStyles} />
-								<Helmet
-									defaultTitle="Blocks"
-									titleTemplate="%s | Block"
-								/>
-								<div css={fullHeightAndWidth} ref={ref}>
-									<PagesCasted />
-								</div>
-							</DeviceProvider>
-						}
-					/>
-				</Routes>
-			</BrowserRouter>
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route
+					path="*"
+					element={
+						<DeviceProvider width={width}>
+							<Global styles={globalStyles} />
+							<Helmet
+								defaultTitle="Blocks"
+								titleTemplate="%s | Block"
+							/>
+							<div css={fullHeightAndWidth} ref={ref}>
+								<PagesCasted />
+							</div>
+						</DeviceProvider>
+					}
+				/>
+			</Routes>
+		</BrowserRouter>
 	);
 }
