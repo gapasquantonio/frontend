@@ -1,3 +1,3 @@
-import BoardResul from './board-result';
+import BoardResult from './board-result';
 
-export default BoardResul;
+export default BoardResult;

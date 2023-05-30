@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+import React from 'react';
 import Box from '../../components/box';
 import useIsMobile from '../../hooks/is-mobile';
 import styles, {
@@ -7,7 +8,7 @@ import styles, {
 	TopContainer,
 } from './card-loader.styles';
 
-export const ResultMockCard = (): JSX.Element => {
+const LoaderCard = (): JSX.Element => {
 	const isMobile = useIsMobile();
 	return (
 		<MainContainer color="white" isMobile={isMobile}>
@@ -28,27 +29,5 @@ export const ResultMockCard = (): JSX.Element => {
 		</MainContainer>
 	);
 };
-type CardLoaderProps = { numberOfMockedCards: number };
 
-const CardLoader = (props: CardLoaderProps) => {
-	const { numberOfMockedCards } = props;
-	const isMobile = useIsMobile();
-	return (
-		<Box
-			flexWrap="wrap"
-			css={{ gap: '16px' }}
-			flexDirection="row"
-			display="flex"
-			paddingX={isMobile ? '14px' : '34px'}
-			overflow="auto"
-		>
-			{new Array(numberOfMockedCards)
-				.fill(null)
-				.map((_, index: number) => (
-					// eslint-disable-next-line react/no-array-index-key
-					<ResultMockCard key={index + 1} />
-				))}
-		</Box>
-	);
-};
-export default CardLoader;
+export default React.memo(LoaderCard);

@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
+import React from 'react';
 import Text from '../../components/text';
-
 import Box from '../../components/box';
 import styles from './homepage.styles';
 import useIsMobile from '../../hooks/is-mobile';
@@ -26,4 +26,4 @@ const Homepage: React.FC = () => {
 	);
 };
 
-export default Homepage;
+export default React.memo(Homepage);

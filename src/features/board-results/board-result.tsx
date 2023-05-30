@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-nested-ternary */
 /** @jsxImportSource @emotion/react */
 import { QueryFunctionContext, useInfiniteQuery } from 'react-query';
 
@@ -9,10 +7,10 @@ import useBlocksApi from '../../hooks/queries';
 import { ItemResult } from '../../types/ItemResult';
 import Box from '../../components/box';
 import styles from './board-result.styles';
-import { pageSize } from './utils';
+import pageSize from './utils';
 import Text from '../../components/text';
 import useIsMobile from '../../hooks/is-mobile';
-import { ResultMockCard } from '../card-loader/card-loader';
+import LoaderCard from '../card-loader/card-loader';
 import NoMoreResults from '../no-more-results/no-more-results';
 import useIsOverflow from '../../hooks/use-overflow';
 
@@ -26,10 +24,10 @@ const BoardResult = () => {
 	const isMobile = useIsMobile();
 	const isMobileOrTabletView = useIsMobile('mobileLandscape');
 	const ref = useRef(null);
+	// hook to know if have enough items to use scrollbar
 	const isOverflow = useIsOverflow(ref);
 
-	console.log(isOverflow);
-	const fetchProducts = ({ pageParam = 0 }: QueryFunctionContext) => {
+	const fetchFamilies = ({ pageParam = 0 }: QueryFunctionContext) => {
 		const data = blocksApi.getFamilies({
 			skip: pageParam,
 			limit: pageSize,
@@ -46,7 +44,7 @@ const BoardResult = () => {
 		isLoading,
 		isIdle,
 		isRefetching,
-	} = useInfiniteQuery<ItemResult[], Error>('infinite', fetchProducts, {
+	} = useInfiniteQuery<ItemResult[], Error>('infinite', fetchFamilies, {
 		getNextPageParam: (
 			lastPage: ItemResult[],
 			allPages: ItemResult[][],
@@ -64,6 +62,7 @@ const BoardResult = () => {
 
 	const showLoader =
 		isLoading || isFetchingNextPage || isIdle || isRefetching;
+
 	const onScrolledBottom = useCallback(
 		async (pageParam?: number) => {
 			if (!hasNextPage || isFetchingNextPage) {
@@ -129,7 +128,7 @@ const BoardResult = () => {
 										/>
 									) : (
 										hasNextPage && (
-											<ResultMockCard key={item.id} />
+											<LoaderCard key={item.id} />
 										)
 									),
 								)}
@@ -147,4 +146,4 @@ BoardResult.defaultProps = {
 	isInitialLoading: false,
 };
 
-export default BoardResult;
+export default React.memo(BoardResult);

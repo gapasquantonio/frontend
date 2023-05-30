@@ -80,4 +80,4 @@ Text.defaultProps = {
 	kind: 'label' as Kind,
 };
 
-export default Text;
+export default React.memo(Text);

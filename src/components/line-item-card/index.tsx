@@ -1,3 +1,3 @@
-import LineItemMiniCard from './line-item-mini-card';
+import ItemCard from './item-card';
 
-export default LineItemMiniCard;
+export default ItemCard;

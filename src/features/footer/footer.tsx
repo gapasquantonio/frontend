@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FooterContainer } from './footer.styles';
 import useIsMobile from '../../hooks/is-mobile';
 import FixedBanner from '../fixed-banner';
@@ -40,4 +40,4 @@ function Footer() {
 	);
 }
 
-export default Footer;
+export default React.memo(Footer);

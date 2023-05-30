@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+import React from 'react';
 import Box from '../../components/box';
 import Button from '../../components/button';
 import Text from '../../components/text';
@@ -34,4 +35,4 @@ const NoMoreResults = () => {
 		</Box>
 	);
 };
-export default NoMoreResults;
+export default React.memo(NoMoreResults);

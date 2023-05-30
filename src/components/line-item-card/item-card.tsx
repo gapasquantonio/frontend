@@ -1,17 +1,17 @@
 /** @jsxImportSource @emotion/react */
+import React from 'react';
 import styles, {
 	BottomContainer,
 	MainContainer,
 	TopContainer,
 	VerticalDivider,
-} from './line-item-mini-card.styles';
-
+} from './item-card.styles';
 import { ItemResult } from '../../types/ItemResult';
 import useIsMobile from '../../hooks/is-mobile';
-
 import Box from '../box';
 import Text from '../text';
 import { RightArrowUpIcon } from '../../shared/icons';
+import config from '../../config';
 
 export type LineItemMiniCardProps = {
 	item: ItemResult;
@@ -25,8 +25,8 @@ export const LineItemCard = (props: LineItemMiniCardProps) => {
 		<MainContainer isMobile={isMobile}>
 			<TopContainer isMobile={isMobile}>
 				<img
-					src={`https://plugin-storage.nyc3.digitaloceanspaces.com/families/images/${item.id}.jpg`}
-					alt="img result"
+					src={`${config.origins.blocks.imageApi}${item.id}.jpg`}
+					alt={`${item.details}`}
 				/>
 			</TopContainer>
 			<BottomContainer isMobile={isMobile}>
@@ -41,11 +41,11 @@ export const LineItemCard = (props: LineItemMiniCardProps) => {
 				</Box>
 				<VerticalDivider isMobile={isMobile} />
 				<Box css={styles.iconBox}>
-					<img src={RightArrowUpIcon} alt="img result" />
+					<img src={RightArrowUpIcon} alt="right arrow up icon" />
 				</Box>
 			</BottomContainer>
 		</MainContainer>
 	);
 };
 
-export default LineItemCard;
+export default React.memo(LineItemCard);
