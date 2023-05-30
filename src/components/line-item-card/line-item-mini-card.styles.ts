@@ -21,8 +21,8 @@ const TopContainer = styled.div<MainContainerProps>`
 	background: #ffffff;
 
 	img {
-		width: 100%;
-		height: 100%;
+		width: ${({ isMobile }) => (isMobile ? '70' : '92')}px;
+		height: ${({ isMobile }) => (isMobile ? '114' : '149')}px;
 		object-fit: cover;
 	}
 `;

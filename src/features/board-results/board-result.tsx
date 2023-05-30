@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 /* eslint-disable no-nested-ternary */
 /** @jsxImportSource @emotion/react */
 import { QueryFunctionContext, useInfiniteQuery } from 'react-query';
 
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import LineItemMiniCard from '../../components/line-item-card';
 import useBlocksApi from '../../hooks/queries';
 import { ItemResult } from '../../types/ItemResult';
@@ -13,6 +14,7 @@ import Text from '../../components/text';
 import useIsMobile from '../../hooks/is-mobile';
 import { ResultMockCard } from '../card-loader/card-loader';
 import NoMoreResults from '../no-more-results/no-more-results';
+import useIsOverflow from '../../hooks/use-overflow';
 
 export interface IInfinitePage {
 	nextCursor: number | undefined;
@@ -22,10 +24,14 @@ export type Orders = ItemResult[];
 const BoardResult = () => {
 	const blocksApi = useBlocksApi();
 	const isMobile = useIsMobile();
+	const ref = useRef(null);
+	const isOverflow = useIsOverflow(ref);
 
+	console.log(isOverflow);
 	const fetchProducts = ({ pageParam = 0 }: QueryFunctionContext) => {
 		const data = blocksApi.getFamilies({
 			skip: pageParam,
+			limit: pageSize,
 			...(pageParam || {}),
 		});
 
@@ -49,7 +55,7 @@ const BoardResult = () => {
 			}
 
 			return {
-				skip: allPages.length * 10,
+				skip: allPages.length * pageSize,
 			};
 		},
 		staleTime: 10000,
@@ -57,13 +63,16 @@ const BoardResult = () => {
 
 	const showLoader =
 		isLoading || isFetchingNextPage || isIdle || isRefetching;
-	const onScrolledBottom = useCallback(async () => {
-		if (!hasNextPage || isFetchingNextPage) {
-			return;
-		}
+	const onScrolledBottom = useCallback(
+		async (pageParam?: number) => {
+			if (!hasNextPage || isFetchingNextPage) {
+				return;
+			}
 
-		await fetchNextPage({ cancelRefetch: false });
-	}, [fetchNextPage, isFetchingNextPage, hasNextPage]);
+			await fetchNextPage({ cancelRefetch: false, pageParam });
+		},
+		[fetchNextPage, isFetchingNextPage, hasNextPage],
+	);
 
 	const columnLength = useMemo(
 		() => data?.pages.flat().length ?? 0,
@@ -71,14 +80,13 @@ const BoardResult = () => {
 	);
 
 	useEffect(() => {
-		if (columnLength < pageSize && hasNextPage) {
-			// If the first page is too small to trigger a scroll, fetch the next page immediately
-			onScrolledBottom();
+		// If the first page is too small to trigger a scroll, fetch the next page immediately
+		if (!isOverflow && hasNextPage) {
+			onScrolledBottom(pageSize);
 		}
-	}, [columnLength, hasNextPage, onScrolledBottom]);
+	}, [columnLength, hasNextPage, isOverflow, onScrolledBottom]);
+
 	const onScroll = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
-		// eslint-disable-next-line no-console
-		console.log(e);
 		const scrolledSoFar =
 			e.currentTarget.scrollHeight - e.currentTarget.scrollTop;
 
@@ -88,14 +96,14 @@ const BoardResult = () => {
 			onScrolledBottom?.();
 		}
 	};
-	// eslint-disable-next-line no-console
-	console.log(data);
+
 	return (
 		<Box
 			paddingLeft={isMobile ? '14px' : '199px'}
 			paddingTop={isMobile ? '28px' : '34px'}
 			onScroll={onScroll}
 			overflow="auto"
+			ref={ref}
 		>
 			<Box>
 				<Box paddingBottom={isMobile ? '14px' : '18px'}>
@@ -125,7 +133,7 @@ const BoardResult = () => {
 							</React.Fragment>
 						);
 					})}
-					{!hasNextPage && <NoMoreResults />}
+					{!hasNextPage && !showLoader && <NoMoreResults />}
 				</Box>
 			</Box>
 		</Box>
