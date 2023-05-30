@@ -34,7 +34,7 @@ export const LineItemCard = (props: LineItemMiniCardProps) => {
 					<Text
 						kind="label-sm"
 						maxWidth={isMobile ? '90px' : '128px'}
-						css={styles.textBox}
+						css={styles.textBox(isMobile)}
 					>
 						{item.details.description}
 					</Text>
