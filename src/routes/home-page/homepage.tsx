@@ -19,15 +19,8 @@ const Homepage: React.FC = () => {
 				<Text kind="page-title">Catálogo</Text>
 				<div css={styles.linhaGradienteUnderScore} />
 			</Box>
-			<Box
-				paddingLeft={isMobile ? '14px' : '199px'}
-				paddingTop={isMobile ? '28px' : '34px'}
-			>
-				<Box paddingBottom={isMobile ? '14px' : '18px'}>
-					<Text kind="body-title">Resultados</Text>
-				</Box>
-				<BoardResul />
-			</Box>
+
+			<BoardResul />
 		</Box>
 	);
 };
