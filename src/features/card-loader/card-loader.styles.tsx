@@ -4,10 +4,10 @@ import { MainContainerProps } from '../../components/line-item-card/line-item-mi
 
 const animation = keyframes`
 0% {
-    background-color: #D835C5;
+    background-color: #C1CAD1;
   }
   100% {
-    background-color: #A11CF3;
+    background-color: #E6E9EC;
   }
 `;
 
@@ -26,15 +26,15 @@ export const MainContainer = styled.div<{ color: string; isMobile: boolean }>`
 	flex-direction: column;
 `;
 export const BottomContainer = styled.div<MainContainerProps>`
-	height: ${({ isMobile }) => (isMobile ? '30' : '20')}px;
-	width: ${({ isMobile }) => (isMobile ? '138' : '160')}px;
+	height: ${({ isMobile }) => (isMobile ? '46' : '36')}px;
+	width: ${({ isMobile }) => (isMobile ? '138' : '176')}px;
 	display: inline-flex;
 	align-items: center;
-	margin: 8px;
 `;
 
 export const TopContainer = styled.div<MainContainerProps>`
 	height: ${({ isMobile }) => (isMobile ? '137' : '198')}px;
+	width: ${({ isMobile }) => (isMobile ? '138' : '176')}px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

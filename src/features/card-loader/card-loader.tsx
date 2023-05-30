@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import Box from '../../components/box';
-import { VerticalDivider } from '../../components/line-item-card/line-item-mini-card.styles';
 import useIsMobile from '../../hooks/is-mobile';
 import styles, {
 	MainContainer,
@@ -15,18 +14,16 @@ const ResultMockCard = (): JSX.Element => {
 			<TopContainer isMobile={isMobile}>
 				<Box
 					css={styles.skeleton}
-					width={isMobile ? '90px' : '128px'}
-					height={isMobile ? '114px' : '149px'}
+					width={isMobile ? '138px' : '176px'}
+					height={isMobile ? '137px' : '198px'}
 				/>
 			</TopContainer>
 			<BottomContainer isMobile={isMobile}>
 				<Box
-					width={isMobile ? '90px' : '128px'}
-					height={isMobile ? '30px' : '20px'}
+					width={isMobile ? '138px' : '176px'}
+					height={isMobile ? '46px' : '36px'}
 					css={styles.skeleton}
 				/>
-				<VerticalDivider css={styles.skeleton} />
-				<Box css={styles.skeleton} width="10px" height="8px" />
 			</BottomContainer>
 		</MainContainer>
 	);
