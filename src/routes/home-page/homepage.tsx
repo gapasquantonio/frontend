@@ -4,7 +4,7 @@ import Text from '../../components/text';
 import Box from '../../components/box';
 import styles from './homepage.styles';
 import useIsMobile from '../../hooks/is-mobile';
-import LineItemMiniCard from '../../components/line-item-card';
+import BoardResul from '../../features/board-results';
 
 const Homepage: React.FC = () => {
 	const isMobile = useIsMobile();
@@ -19,16 +19,15 @@ const Homepage: React.FC = () => {
 				<Text kind="page-title">Catálogo</Text>
 				<div css={styles.linhaGradienteUnderScore} />
 			</Box>
-			<LineItemMiniCard
-				item={{
-					id: '1',
-					premium: false,
-					details: {
-						name: 'a',
-						description: 'ao',
-					},
-				}}
-			/>
+			<Box
+				paddingLeft={isMobile ? '14px' : '199px'}
+				paddingTop={isMobile ? '28px' : '34px'}
+			>
+				<Box paddingBottom={isMobile ? '14px' : '18px'}>
+					<Text kind="body-title">Resultados</Text>
+				</Box>
+				<BoardResul />
+			</Box>
 		</Box>
 	);
 };

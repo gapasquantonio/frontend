@@ -20,8 +20,7 @@ export type LineItemMiniCardProps = {
 export const LineItemCard = (props: LineItemMiniCardProps) => {
 	const isMobile = useIsMobile();
 	const { item } = props;
-	// eslint-disable-next-line no-console
-	console.log(item);
+
 	const img = isMobile ? ImgMobile : ImgDesktop;
 
 	return (
@@ -36,34 +35,7 @@ export const LineItemCard = (props: LineItemMiniCardProps) => {
 						maxWidth={isMobile ? '90px' : '128px'}
 						css={styles.textBox}
 					>
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						aaddddddddddddddd dddddddddddddddddddaa
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa aaddddddddddddddd
-						dddddddddddddddddddaa
+						{item.details.description}
 					</Text>
 				</Box>
 				<VerticalDivider />
