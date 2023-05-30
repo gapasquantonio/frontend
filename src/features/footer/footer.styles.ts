@@ -10,4 +10,5 @@ export const FooterContainer = styled.div<FooterContainerProps>`
 	align-items: ${({ isMobile }) => (isMobile ? 'flex-start' : 'center')};
 	display: flex;
 	flex-direction: column;
+	z-index: 3;
 `;
