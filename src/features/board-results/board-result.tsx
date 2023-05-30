@@ -122,7 +122,9 @@ const BoardResult = () => {
 											key={result.id}
 										/>
 									) : (
-										<ResultMockCard key={result.id} />
+										hasNextPage && (
+											<ResultMockCard key={result.id} />
+										)
 									),
 								)}
 							</React.Fragment>
