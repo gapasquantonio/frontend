@@ -6,6 +6,7 @@ import {
 	Theme,
 	ThemeValue,
 } from 'styled-system';
+import React from 'react';
 import theme, { StyledSystemStyles, StyledSystemProps } from '../../theme';
 
 // defines the gap prop types
@@ -40,4 +41,4 @@ const Flex = styled.div<StyledSystemProps & GapProps>(
 	}),
 );
 
-export default Flex;
+export default React.memo(Flex);

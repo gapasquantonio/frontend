@@ -1,13 +1,14 @@
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import { MainContainerProps } from '../../components/line-item-card/line-item-mini-card.styles';
+import { MainContainerProps } from '../../components/line-item-card/item-card.styles';
+import { theme } from '../../theme';
 
 const animation = keyframes`
 0% {
-    background-color: #C1CAD1;
+    background-color: ${theme.colors.loaderPrimary};
   }
   100% {
-    background-color: #E6E9EC;
+    background-color: ${theme.colors.loaderSecondary};
   }
 `;
 
@@ -22,7 +23,6 @@ export const MainContainer = styled.div<{ color: string; isMobile: boolean }>`
 	border: 1px solid #cccccc;
 	border-radius: 8px;
 	border-color: ${(props) => `${props.color}`};
-	background: black;
 	flex-direction: column;
 `;
 export const BottomContainer = styled.div<MainContainerProps>`
@@ -38,7 +38,6 @@ export const TopContainer = styled.div<MainContainerProps>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: black;
 `;
 export default {
 	skeleton,

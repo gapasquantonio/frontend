@@ -12,6 +12,7 @@ interface FixedBannerProps {
 const FixedBanner: React.FC<FixedBannerProps> = (props) => {
 	const { setBannerClosed } = props;
 	const isMobile = useIsMobile();
+	const isMobileAndTablet = useIsMobile('mobileLandscape');
 
 	const handleBannerClick = useCallback(() => {
 		if (setBannerClosed) setBannerClosed(true);
@@ -27,7 +28,7 @@ const FixedBanner: React.FC<FixedBannerProps> = (props) => {
 			>
 				{isMobile && (
 					<Button
-						id="fechar"
+						id="button_fechar"
 						kind="text"
 						width={isMobile ? '223px' : '235px'}
 						height="20px"
@@ -46,14 +47,15 @@ const FixedBanner: React.FC<FixedBannerProps> = (props) => {
 					width={isMobile ? '272px' : ''}
 					marginTop={isMobile ? '18px' : ''}
 					textAlign="center"
+					fontSize={isMobileAndTablet ? '15px' : ''}
 				>
 					Não limite sua criatividade, junte-se a familia Blocks por
 					apenas &nbsp;BRL 19,99
 				</Text>
 				<Button
-					id="a"
+					id="button_premium"
 					kind="outline"
-					width={isMobile ? '223px' : '235px'}
+					width={isMobileAndTablet ? '223px' : '235px'}
 					height="42px"
 					marginBottom={isMobile ? '24px' : ''}
 					marginTop={isMobile ? '18px' : ''}

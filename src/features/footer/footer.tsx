@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { FooterContainer } from './footer.styles';
 import useIsMobile from '../../hooks/is-mobile';
 import FixedBanner from '../fixed-banner';
@@ -12,9 +12,14 @@ const mockedFooter: FooterItem[] = [
 	{ name: 'Termos de uso', id: '3' },
 	{ name: 'Politica de privacidade', id: '4' },
 ];
-function Footer() {
+interface FooterProps {
+	setBannerClosed: React.Dispatch<React.SetStateAction<boolean>>;
+	isBannerClosed: boolean;
+}
+const Footer: React.FC<FooterProps> = (props: FooterProps) => {
+	const { setBannerClosed, isBannerClosed } = props;
 	const isMobile = useIsMobile();
-	const [isBannerClosed, setBannerClosed] = useState<boolean>(false);
+
 	return (
 		<FooterContainer isMobile={isMobile}>
 			<Flex
@@ -38,6 +43,6 @@ function Footer() {
 			)}
 		</FooterContainer>
 	);
-}
+};
 
-export default Footer;
+export default React.memo(Footer);

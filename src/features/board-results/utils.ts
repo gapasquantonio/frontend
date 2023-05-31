@@ -1,2 +1,3 @@
-export const pageSize = 10;
-export const maxCardsPerColumnLimit = 50;
+const pageSize = 10;
+
+export default pageSize;

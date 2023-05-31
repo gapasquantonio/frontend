@@ -43,12 +43,6 @@ const VerticalDivider = styled.div<MainContainerProps>`
 	margin-left: 8px !important;
 	border-left: 1px solid #cccccc;
 `;
-const inlineBox = css(`
-    display: inline-flex;
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-`);
 const iconBox = css`
 	display: flex;
 	justify-content: center;
@@ -70,7 +64,6 @@ const textBox = (isMobile: boolean) =>
  
 `);
 export default {
-	inlineBox,
 	iconBox,
 	textBox,
 };

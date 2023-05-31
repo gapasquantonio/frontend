@@ -29,7 +29,6 @@ const DeviceContext = React.createContext<Device>({
 });
 
 const getScreenSize = (width: number): ScreenSizeValue => {
-	// Which breakpoint is the window within?
 	const [, screenSize] = Object.entries(breakpointMap).find(
 		([breakpoint]) => width <= +breakpoint.replace('px', ''),
 	) ?? ['', 'desktopXL'];

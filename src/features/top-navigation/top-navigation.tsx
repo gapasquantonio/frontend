@@ -1,3 +1,4 @@
+import React from 'react';
 import { TopNavContainer, ButtonOrgWrapper } from './top-navigation.styles';
 import useIsMobile from '../../hooks/is-mobile';
 import { LogoDesktop, LogoMobile } from '../../shared/icons';
@@ -17,4 +18,4 @@ function TopNavigation() {
 	);
 }
 
-export default TopNavigation;
+export default React.memo(TopNavigation);
