@@ -13,7 +13,7 @@ const Homepage: React.FC = () => {
 			<div css={styles.linhaGradiente} />
 			<Box
 				css={styles.pageFlex}
-				paddingLeft={isMobile ? '14px' : '199px'}
+				paddingX={isMobile ? '14px' : '199px'}
 				paddingY="29px"
 			>
 				<Text kind="page-title">Catálogo</Text>

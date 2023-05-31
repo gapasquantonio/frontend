@@ -4,7 +4,6 @@ const pageContainer = css(`
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 1329px;
     box-sizing: border-box;
 	background:#FBFBFB;
 	

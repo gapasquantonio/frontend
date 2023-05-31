@@ -6,7 +6,7 @@ export type MainContainerProps = {
 };
 
 const MainContainer = styled.div<MainContainerProps>`
-	height: ${({ isMobile }) => (isMobile ? '183' : '234')}px;
+	height: ${({ isMobile }) => (isMobile ? '184' : '235')}px;
 	width: ${({ isMobile }) => (isMobile ? '138' : '176')}px;
 	border: 1px solid #cccccc;
 	border-radius: 8px;
@@ -19,16 +19,23 @@ const TopContainer = styled.div<MainContainerProps>`
 	justify-content: center;
 	align-items: center;
 	background: #ffffff;
+	border-bottom: 1px solid #cccccc;
+	border-radius: 8px 8px 0px 0px;
+	img {
+		width: ${({ isMobile }) => (isMobile ? '70' : '92')}px;
+		height: ${({ isMobile }) => (isMobile ? '114' : '149')}px;
+		object-fit: cover;
+	}
 `;
 
 const BottomContainer = styled.div<MainContainerProps>`
 	height: ${({ isMobile }) => (isMobile ? '30' : '20')}px;
-	width: ${({ isMobile }) => (isMobile ? '138' : '160')}px;
+	width: ${({ isMobile }) => (isMobile ? '122' : '160')}px;
 	display: inline-flex;
 	align-items: center;
 	padding: 8px;
+	border-radius: 8px;
 	background: #ffffff;
-	border-top: 1px solid #cccccc;
 `;
 const VerticalDivider = styled.div`
 	margin-right: 8px !important;
@@ -43,21 +50,24 @@ const inlineBox = css(`
     align-items: center;
     align-content: center;
 `);
-const iconBox = css(`
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    margin-right: 7px;
-`);
-const textBox = css(`
+const iconBox = css`
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	margin-right: 7px;
+`;
+const textBox = (isMobile: boolean) =>
+	css(`
     display: inline;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: ${isMobile ? '3' : '2'};
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    word-wrap: break-word;
+	text-align: initial;
+	word-break: break-word;
+	hyphens: auto;
  
 `);
 export default {
