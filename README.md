@@ -1,7 +1,7 @@
 # <div align="center">📋 Blocks APIs Front End Test</div>
 
-<a href="https://factoryfour-api-status.netlify.app/">
-<img src="./radme-image.png"/>
+<a href="https://blocksrvtfrontendtest.netlify.app/">
+<img src="./readme-image.png"/>
                              </a>
 
 ## Blocks APIs Front End Test

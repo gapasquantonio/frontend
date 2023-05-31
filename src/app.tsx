@@ -37,8 +37,8 @@ export default function App() {
 							<DeviceProvider width={width}>
 								<Global styles={globalStyles} />
 								<Helmet
-									defaultTitle="Blocks"
-									titleTemplate="%s | Block"
+									defaultTitle="Familias BIM | Blocks"
+									titleTemplate="%s | Familias BIM | Block"
 								/>
 								<div css={fullHeightAndWidth} ref={ref}>
 									<PagesCasted />
