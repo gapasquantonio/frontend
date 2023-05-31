@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Text from '../../components/text';
 
 import Box from '../../components/box';
+import theme from '../../theme';
 
 const customBorder = css`
 	// https://dev.to/afif/border-with-gradient-and-radius-387f
@@ -194,6 +195,12 @@ const linhaGradienteUnderScore = css`
 	height: 4px;
 	border-radius: 50px;
 `;
+const resultadosContainer = css`
+	${theme.mediaQueries.extralarge} {
+		padding-left: 199px;
+		padding-right: 199px;
+	}
+`;
 export default {
 	defaultExpandedColumn,
 	defaultCollapsedColumn,
@@ -206,4 +213,5 @@ export default {
 	imagesContainer,
 	pageFlex,
 	linhaGradienteUnderScore,
+	resultadosContainer,
 };

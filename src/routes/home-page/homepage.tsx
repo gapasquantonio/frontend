@@ -13,8 +13,9 @@ const Homepage: React.FC = () => {
 			<div css={styles.linhaGradiente} />
 			<Box
 				css={styles.pageFlex}
-				paddingX={isMobile ? '14px' : '199px'}
+				paddingX={isMobile ? '14px' : '34px'}
 				paddingY="29px"
+				zIndex={2}
 			>
 				<Text kind="page-title">Catálogo</Text>
 				<div css={styles.linhaGradienteUnderScore} />

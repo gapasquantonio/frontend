@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import theme from '../../theme';
 
 const pageContainer = css(`
     display: flex;
@@ -6,6 +7,7 @@ const pageContainer = css(`
     width: 100%;
     box-sizing: border-box;
 	background:#FBFBFB;
+	
 	
 `);
 
@@ -15,6 +17,10 @@ const pageFlex = css`
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 4px;
+	${theme.mediaQueries.extralarge} {
+		padding-left: 199px;
+		padding-right: 199px;
+	}
 `;
 
 const contentBox = css`
